@@ -1,0 +1,20 @@
+<!-- /templates/product.liquid -->
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% section 'product-template' %}
+
+{% section 'product-recommendations' %}
+
+{% if collection %}
+  <hr class="hr--clear">
+  <div class="text-center">
+    <a href="{{ collection.url }}" class="return-link">&larr; {{ 'products.general.collection_return' | t: collection: collection.title }}</a>
+  </div>
+{% endif %}
+
+<script>
+var nodes = document.getElementsByTagName("fieldset")[0];
+(nodes).insertAdjacentHTML('afterend', '<form class="line-item"><p class="line-item-property__field"><label for="your-custom-text">Your Custom Stitching</label><input id="your-custom-text" type="text" name="properties[Your Custom Text]"></p></form>');
+</script>
