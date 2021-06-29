@@ -2,19 +2,78 @@
 {% comment %}
   The contents of the product.liquid template can be found in /sections/product-template.liquid
 {% endcomment %}
+<div class="banner-rain">
+  <div class="rain front-row"></div>
+  <div class="rain back-row"></div>
+  <div class="fade-in-anim">
+  	<img class="jacket lazyloaded" src="https://cdn.shopify.com/s/files/1/0575/3313/7053/files/jacket_only.png?v=1624962889"/> 
+  	<h2 class="jacket-text">Designed To Be Dry</h2>
+    <div class="underline"></div>
+    <div class="underline-2"></div>
+    
+  </div>
+</div>
+
+
+{% section 'featured-row' %}
 
 {% section 'product-template' %}
 
 {% section 'product-recommendations' %}
 
 {% if collection %}
-  <hr class="hr--clear">
   <div class="text-center">
     <a href="{{ collection.url }}" class="return-link">&larr; {{ 'products.general.collection_return' | t: collection: collection.title }}</a>
   </div>
 {% endif %}
 
+
+<script>
+var makeItRain = function() {
+  //clear out everything
+  $('.rain').empty();
+
+  var increment = 0;
+  var drops = "";
+  var backDrops = "";
+
+  while (increment < 100) {
+    //couple random numbers to use for various randomizations
+    //random number between 98 and 1
+    var randoHundo = (Math.floor(Math.random() * (98 - 1 + 1) + 1));
+    //random number between 5 and 2
+    var randoFiver = (Math.floor(Math.random() * (5 - 2 + 1) + 2));
+    //increment
+    increment += randoFiver;
+    //add in a new raindrop with various randomizations to certain CSS properties
+    drops += '<div class="drop" style="left: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
+    backDrops += '<div class="drop" style="right: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
+  }
+
+  $('.rain.front-row').append(drops);
+  $('.rain.back-row').append(backDrops);
+}
+
+
+makeItRain();
+</script>
+
+<script>
+  function parallax(){
+  var scrolled = $(window).scrollTop();
+    $('.underline').css('left',(200 + scrolled*.2)+'px');
+    $('.underline-2').css('right',(200 + scrolled*.25)+'px');
+  }
+ $(window).scroll(function(e){
+  parallax();
+	});
+</script>
+
+<!-- Fieldset re-located to after Size fieldset -->
 <script>
 var nodes = document.getElementsByTagName("fieldset")[0];
+console.log(nodes);
 (nodes).insertAdjacentHTML('afterend', '<form class="line-item"><p class="line-item-property__field"><label for="your-custom-text">Your Custom Stitching</label><input id="your-custom-text" type="text" name="properties[Your Custom Text]"></p></form>');
 </script>
+
+{{ 'alternative.scss.css' | asset_url | stylesheet_tag }}

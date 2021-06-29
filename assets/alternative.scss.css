@@ -1,0 +1,12 @@
+#shopify-section-featured-row {
+  margin-bottom: 5em;
+  background-color: hsla(240, 35%, 62%, .4); 
+  }
+#shopify-section-featured-row .wrapper{
+  padding-left:0;
+}
+  
+#shopify-section-featured-row h2{
+  color: #fff;
+}
+

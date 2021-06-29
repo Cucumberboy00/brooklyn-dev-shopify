@@ -30,6 +30,10 @@
   #{$property}: #{$value};
 }
 
+body{
+overflow-x: hidden;
+}
+
 /*============================================================================
   Prefix mixin for generating vendor prefixes.
   Based on https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/addons/_prefixer.scss
@@ -4829,3 +4833,145 @@ $colors: (
 #your-custom-text{
 margin:0.5em;
 }
+
+/* Product Alternate CSS */
+.banner-rain {
+  width: 100%;
+  height: 50em;
+  margin-top: -5em;
+  background: radial-gradient(circle, rgba(67,80,133,0.9248074229691877) 19%, rgba(183,187,203,1) 33%, rgba(255,255,255,1) 49%);
+  text-align: center;
+  overflow-y: hidden;
+}
+
+.jacket {
+  position: relative;
+  margin: auto;
+  margin-top: 3em;
+  height: 40em;
+  z-index: 0;
+  width: 100%;
+  object-fit: contain;
+}
+
+.jacket-text{
+  font-family: Roboto Regular;
+  font-size: 50px;
+  font-weight: 400;
+  margin-top: -1em;
+}
+
+
+.rain {
+  position: absolute;
+  left: 0;
+  margin-top: 8em;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.rain.back-row {
+  display: none;
+  z-index: 1;
+  bottom: 60px;
+  opacity: 0.5;
+}
+
+body.back-row-toggle .rain.back-row {
+  display: block;
+}
+
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 15px;
+  height: 120px;
+  pointer-events: none;
+  animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0vh);
+  }
+  75% {
+    transform: translateY(90vh);
+  }
+  100% {
+    transform: translateY(90vh);
+  }
+}
+
+.stem {
+  width: 1px;
+  height: 60%;
+  margin-left: 7px;
+  background: linear-gradient(to bottom, rgba(0, 0, 124, 0), rgba(0, 0, 124, 0.25));
+  animation: stem 0.5s linear infinite;
+}
+
+@keyframes stem {
+  0% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-in-anim {
+  animation: fadeIn linear 2s;
+  -webkit-animation: fadeIn linear 2s;
+  -moz-animation: fadeIn linear 2s;
+  -o-animation: fadeIn linear 2s;
+  -ms-animation: fadeIn linear 2s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:.2;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:.2;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:.2;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:.2;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:.2;}
+  100% {opacity:1;}
+}
+
+.underline, .underline-2{
+  background: hsla(240, 35%, 62%, .4);
+  position: absolute;
+  width: 5em;
+  height: 1em;
+}
+
+.underline {
+  margin-top: -8em;
+  left:200px;
+}
+
+.underline-2 {
+  right: 200px;
+}
+

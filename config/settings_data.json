@@ -180,6 +180,37 @@
           "1624877604047f76c1-0"
         ],
         "settings": {}
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "product_vendor_enable": false,
+          "social_sharing_products": true,
+          "quantity_enabled": false,
+          "product_selector": "radio",
+          "enable_payment_button": true,
+          "add_to_cart_button_size": "small",
+          "media_layout": "stacked",
+          "enable_image_zoom": true,
+          "enable_video_looping": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like"
+        }
+      },
+      "featured-row": {
+        "type": "featured-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/jacketman.jpg",
+          "layout": "left",
+          "title": "Limited Edition Albright",
+          "text": "<p><br\/>• WATERPROOF BREATHABLE 2 LAYER FABRIC<br\/>• MICROPOROUS COATING AND DWR FINISH<br\/>• STORMFLAP AT CENTER FRONT<br\/>• TWO-WAY ADJUSTABLE HOOD<\/p>",
+          "button_label": ""
+        }
       }
     },
     "content_for_index": [
